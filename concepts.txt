@@ -1,0 +1,26 @@
+* = complete with solution
++ = challenge written, needs solution
+
+-- FORENSICS --
+
+100 -
+200 -
+300 -
+
+-- PWNABLES --
+
+100 -
+200 -
+300 -
+
+-- REVERSE ENGINEERING --
+
+100 - goxor - golang binary with a XOR routine that hides the secret flag. Requires reversing of golang binary to identify the flag.
+200 -
+300 -
+
+--  WEB --
+
+100 -
+200 -
+300 -
