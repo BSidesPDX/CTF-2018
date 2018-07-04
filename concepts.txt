@@ -3,9 +3,9 @@
 
 -- FORENSICS --
 
-100 -
-200 -
-300 -
+100 - hidden - file-carved mp3 file containing an encrypted tar file (key morse encoded and hidden in waveforms), which contains a hidden text file with permissions 000. That text file contains the flag masked by \b characters.
+200 - 
+300 - 
 
 -- PWNABLES --
 
