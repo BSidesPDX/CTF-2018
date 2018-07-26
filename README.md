@@ -14,6 +14,7 @@ This is the development environment for the 2018 BSidesPDX CTF. We will referenc
 
 | Challenge Name | Category | Points | Port |
 |----------------|----------|--------|------|
+| goxor | RE | 100 | NA |
 
 ## Local Deployment
 
