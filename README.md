@@ -12,8 +12,11 @@ This is the development environment for the 2018 BSidesPDX CTF. We will referenc
 
 ## Challenges
 
-| Challenge Name | Category | Points | Port |
-|----------------|----------|--------|------|
+| Challenge Name | Category  | Points | Port |
+|----------------|-----------|--------|------|
+| capture        | forensics | 100    | N/A  |
+|                | forensics | 200    | N/A  |
+| hidden         | forensics | 300    | N/A  |
 
 ## Local Deployment
 
