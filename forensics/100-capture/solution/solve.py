@@ -2,7 +2,7 @@ from scapy.all import *
 
 # import pcap file
 print('importing file...')
-packets = rdpcap('../dist/dump.pcap')
+packets = rdpcap('../distFiles/dump.pcap')
 
 # define some variables to be used later
 data = list()
