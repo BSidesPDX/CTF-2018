@@ -21,6 +21,6 @@
 
 --  WEB --
 
-100 -
-200 -
-300 -
+100 - Death by 1000 curls - give users a wordlist, 1000 of those words will return a number 1-1000 from the server. users must hit urls in numerical order to get access to main page
+200 - padding oracle - crazy long cookie with lots of stuff that will need to be changed, cookie will be encrypted but susceptible to a padding oracle attack
+300 - totally_not_rsa token - still figuring out the full thing, but this will include a hidden url containing an image that changes every 30 seconds of a hardware security token displaying a pin. any interactions with the server must include the current pin
