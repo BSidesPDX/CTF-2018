@@ -7,6 +7,12 @@
 * 200 - hidden - file-carved mp3 file containing an encrypted tar file (key morse encoded and hidden in waveforms), which contains a hidden text file with permissions 000. That text file contains the flag masked by \b characters.
 300 -
 
+-- OSINT --
+
+100 -
+200 -
+300 -
+
 -- PWNABLES and REVERSE ENGINEERING--
 
 + 100 - goxor - golang binary with a XOR routine that hides the secret flag. Requires reversing of golang binary to identify the flag.
