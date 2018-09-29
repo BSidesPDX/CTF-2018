@@ -16,7 +16,7 @@
 -- PWNABLES and REVERSE ENGINEERING--
 
 + 100 - goxor - golang binary with a XOR routine that hides the secret flag. Requires reversing of golang binary to identify the flag.
-200 -
++ 200 - secureshell - x64 Linux binary.  Asks for username and password, if both are correct, it launches a shell.  The username is hardcoded, however, the password is read from a file.  A strfmt vuln can be used to leak this password.
 300 -
 
 --  WEB --

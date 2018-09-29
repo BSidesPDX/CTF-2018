@@ -18,7 +18,7 @@ This is the development environment for the 2018 BSidesPDX CTF. We will referenc
 | hidden         | forensics | 200    | N/A  |
 |                | forensics | 300    | N/A  |
 | goxor          | pwn/re        | 100    | N/A  |
-|                | pwn/re        | 200    |   |
+| secureshell    | pwn/re        | 200    | 7100 |
 |                | pwn/re        | 300    |   |
 |                | OSINT        | 100 | |
 |                | OSINT        | 200 | |
