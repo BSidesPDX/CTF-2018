@@ -1,4 +1,4 @@
-from flask import Flask, session
+from flask import Flask, session, render_template
 from flask_session import Session
 
 app = Flask(__name__)
@@ -20,10 +20,9 @@ def hello():
 
     if 'last_url_number' in session and session['last_url_number'] == 1000:
         # set the real key
-        html += "<h3>key!!!!!!</h3>"
+        return render_template('key.html')
     else:
-        html += "<h3>Not yet....</h3>"
-    return html
+        return render_template('not_yet.html')
 
 @app.route('/<path:word>')
 def check_path(word):
