@@ -17,7 +17,17 @@ This is the development environment for the 2018 BSidesPDX CTF. We will referenc
 | capture        | forensics | 100    | N/A  |
 | hidden         | forensics | 200    | N/A  |
 |                | forensics | 300    | N/A  |
-| goxor          | re        | 100    | N/A  |
+| goxor          | pwn/re        | 100    | N/A  |
+|                | pwn/re        | 200    |   |
+|                | pwn/re        | 300    |   |
+|                | OSINT        | 100 | |
+|                | OSINT        | 200 | |
+|                | OSINT | 300 | |
+| death_by_1000_curls | web | 100 | |
+| Dodona           | web | 200 | |
+| Trollsec         | web | 300 | |
+
+
 
 ## Local Deployment
 
