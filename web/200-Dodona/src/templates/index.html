@@ -1,0 +1,33 @@
+<!doctype html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}" />
+</head>
+<body>
+	<h1 align="center">Welcome to Dodona!</h1>
+	<br />
+	<div style="width:100%;text-align:center;">
+	<a title="By Onno Zweers [CC BY-SA 3.0
+ (https://creativecommons.org/licenses/by-sa/3.0
+) or GFDL (http://www.gnu.org/copyleft/fdl.html)], from Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:D70-0404-dodona.jpg"><img width="512" alt="D70-0404-dodona" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/D70-0404-dodona.jpg/512px-D70-0404-dodona.jpg"></a>
+	</div>
+	<br />
+	<br />
+	<div align="center">
+	{% if not query %}
+	<p align="center">The great Oracle at Dodona welcomes you
+	<br /><br />
+	What would you like to ask the Oracle?
+	</p>
+	{% else %}
+	<b align="center">{{ answer }}</b>
+	<br />
+	<br />
+	<p align="center">What else would you like to ask the Oracle?</p>
+	{% endif %}
+	<form action="/" method="GET">
+		<input type="text" name="q">
+		<br />
+		<input type="submit" value="Ask the Oracle">
+	</form>
+	</div>
+</body>
