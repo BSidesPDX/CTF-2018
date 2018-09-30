@@ -19,6 +19,9 @@
       </div>
     </header>
     <div class="container">
+      <script type=text/javascript>
+          $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+      </script>
       {% block content %}
       {% endblock %}
     </div>

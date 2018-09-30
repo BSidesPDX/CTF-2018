@@ -24,19 +24,23 @@ def home():
 def about():
     return render_template('about.html')
 
-@app.route("/search", methods=['GET'])
+@app.route("/search")
 def search():
+    return render_template('search.html')
+
+@app.route("/_search", methods=['GET'])
+def _search():
     if request.method == 'GET':
-        print request.form
-        print request.data
-        print request.json
-        if request.args.get("text") is not None and request.headers.get("token") is not None:
-            
-            if not check_token(request.headers.get("token")):
+        print request.args
+        query = request.args.get("query")
+        token = request.headers.get("token")
+        if query is not None and token is not None:
+            print "CHEESE"
+            if not check_token(token):
                 return "TOKEN ERROR"
 
             g.db = connect_db()
-            query = "SELECT url FROM trolls WHERE url LIKE '%{}%'".format(request.args.get("text"))
+            query = "SELECT url FROM trolls WHERE url LIKE '%{}%'".format(query)
             curs = g.db.execute(query)
             rows = curs.fetchall()
             g.db.close()
