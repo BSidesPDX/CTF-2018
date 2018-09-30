@@ -1,4 +1,5 @@
-from flask import Flask, make_response, g, request, jsonify
+from flask import Flask, make_response, g, request, jsonify, render_template
+from flask_cors import cross_origin
 from threading import Timer
 import os
 import random
@@ -13,9 +14,15 @@ TOKEN_UPDATE_INTERVAL=60
 
 app.database = "trollsec.db"
 
+NUM_TROLL_VIDS = 7
+
 @app.route("/")
-def hello():
-    return "hi"
+def home():
+    return render_template('home.html')
+
+@app.route("/about")
+def about():
+    return render_template('about.html')
 
 @app.route("/search", methods=['GET'])
 def search():
@@ -47,6 +54,14 @@ def show_token():
     response.headers.set('Content-Type', 'image/jpeg')
     #response.headers.set('Content-Disposition', 'attachment', filename='token.jpg')
     return response
+
+
+#@app.errorhandler(404)
+@app.errorhandler(Exception)
+@cross_origin()
+def http_error_handler(error):
+    video = random.randint(1, NUM_TROLL_VIDS + 1)
+    return render_template('error.html', video=video), 418
 
 def check_token(token):
     global CURRENT_TOKEN
