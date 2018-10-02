@@ -1,4 +1,4 @@
-# hidden - 300
+# hidden - 200
 
 Provide `output.wav` and summary.
 
