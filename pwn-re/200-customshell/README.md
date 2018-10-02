@@ -1,34 +1,16 @@
-# What
+# pwn 200 - customshell
 
-Template for service creation with docker and kubernetes
+## Description
 
-## Directory Structure
-
-```
-Challenge
-| - deployment
-| - solution
-| - src
-```
+Asks for username and password, if both are correct, it launches a shell.  The username is hardcoded, however, the password is read from a file.  A strfmt vuln can be used to leak this password.
 
 ## Deploy
 
-1. export PROJECT_ID="google platform project ID"
-1. make container
-1. make push
-1. make deploy
-1. make serve
+1. `gcc main.c -o secureshell`
+2. Create `password.txt` file
 
-Alterantive
+## Challenge
 
-1. export PROJECT_ID="google platform project ID"
-1. make
+Do you have what it takes to join pwnclub?
 
-## Delete
-
-1. make deleteKube
-1. make delete
-
-Alternative
-
-1. make clean
+flag: BSidesPDX{ayy_lma0_my_5h3ll_i5_n0t_v3ry_s3cur3}
