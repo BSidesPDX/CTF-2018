@@ -11,6 +11,6 @@ Asks for username and password, if both are correct, it launches a shell.  The u
 
 ## Challenge
 
-Do you have what it takes to join pwnclub?
+I made my own shell, it's very secure.
 
 flag: BSidesPDX{ayy_lma0_my_5h3ll_i5_n0t_v3ry_s3cur3}
