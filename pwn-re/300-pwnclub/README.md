@@ -6,8 +6,7 @@ The vulnerabilities are easy and straight forward, but all anti-exploit mitigati
 
 ## Deploy
 
-1. `gcc main.c -o pwnclub`
-2. `libc.so.6` will need to be distributed with the binary (`docker cp <containerId>:/lib/x86_64-linux-gnu/libc-2.27.so ./`)
+1. `libc.so.6` will need to be distributed with the binary (`docker cp <containerId>:/lib/x86_64-linux-gnu/libc-2.27.so ./`)
 
 ## Challenge
 

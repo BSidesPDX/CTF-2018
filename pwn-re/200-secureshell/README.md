@@ -6,8 +6,7 @@ Asks for username and password, if both are correct, it launches a shell.  The u
 
 ## Deploy
 
-1. `gcc main.c -o secureshell`
-2. Create `password.txt` file
+1. Create `password.txt` file
 
 ## Challenge
 
