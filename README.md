@@ -5,7 +5,7 @@
 This is the development environment for the 2018 BSidesPDX CTF. We will reference the deployment and infra setup used in [BSidesPDX 2017 CTF](https://github.com/BSidesPDX/CTF-2017/tree/master/deployTemplate/src) for this years as well.
 
 1. Write your challenge idea in `concepts.txt`
-1. copy the `deployTemplate` dir structure for your challenge
+1. copy the `deployTemplate` dir structure for your challenge (only commit the working parts. The deploy yamls should be changed before committing, for example)
 1. Implement your challenge
 1. If applicable, add your docker config to `docker-compose.yml` and add relevant information to `Makefile` to automate the process of deploying a local instance of the CTF
 1. Provide a solution for your challenge
@@ -26,8 +26,6 @@ This is the development environment for the 2018 BSidesPDX CTF. We will referenc
 | death_by_1000_curls | web | 100 | |
 | Dodona           | web | 200 | |
 | Trollsec         | web | 300 | |
-
-
 
 ## Local Deployment
 
