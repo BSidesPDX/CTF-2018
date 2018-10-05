@@ -1,0 +1,17 @@
+# pwn
+
+secureshell:
+    build: ./pwn-re/200-secureshell/src
+    ports:
+        - 7100:7100
+    security_opt:
+        - seccomp:unconfined
+
+pwnclub:
+    build: ./pwn-re/300-pwnclub/src
+    ports:
+        - 31337:31337
+    security_opt:
+        - seccomp:unconfined
+
+# web
