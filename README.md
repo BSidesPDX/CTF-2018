@@ -37,3 +37,9 @@ To locally test, deploy or play challenges with Docker, run the following (Ubunt
 1. Containers are viewable at localhost:PORT (view with docker-compose ps)
 1. `docker-compose kill` to stop the containers
 1. `make clean` to clean the source folders
+
+## BSidesPDX
+
+CTF was ran during [BSidesPDX 2018](https://bsidespdx.org/events/2018/contests-events.html) on October 26th and 27th.
+
+We used [CTFd](https://ctfd.io/) for the scoreboard hosted at [BSidesPDXCTF.party](https://bsidespdxctf.party/).
