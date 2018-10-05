@@ -13,12 +13,12 @@ RUN apt-get install -y --no-install-recommends socat
 RUN adduser --disabled-password --gecos '' pwnclub
 RUN chown root:pwnclub /app/pwnclub
 RUN chown root:pwnclub /app/flag.txt
-RUN chown root:pwnclub /app/main.c
+RUN chown root:pwnclub /app/pwnclub.c
 RUN chown root:pwnclub /app/Dockerfile
 
 RUN chmod 750 /app/pwnclub
 RUN chmod 440 /app/flag.txt
-RUN chmod 440 /app/main.c
+RUN chmod 440 /app/pwnclub.c
 RUN chmod 440 /app/Dockerfile
 
 # Expose port 31337 and use socat to redirect stdin/stdout to this port

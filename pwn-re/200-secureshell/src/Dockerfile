@@ -13,13 +13,13 @@ RUN apt-get install -y --no-install-recommends socat
 RUN adduser --disabled-password --gecos '' secureshell
 RUN chown root:secureshell /app/secureshell
 RUN chown root:secureshell /app/flag.txt
-RUN chown root:secureshell /app/main.c
+RUN chown root:secureshell /app/secureshell.c
 RUN chown root:secureshell /app/password.txt
 RUN chown root:secureshell /app/Dockerfile
 
 RUN chmod 750 /app/secureshell
 RUN chmod 440 /app/flag.txt
-RUN chmod 440 /app/main.c
+RUN chmod 440 /app/secureshell.c
 RUN chmod 440 /app/password.txt
 RUN chmod 440 /app/Dockerfile
 
