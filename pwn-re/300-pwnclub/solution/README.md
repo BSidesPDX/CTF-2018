@@ -191,7 +191,7 @@ Much like leaking the libc address, I used a debugger to set a breakpoint at mai
 
 Here I noticed that the 39th leaked value from the stack was the stack canary.
 
-Here is the Python code for doing such, again, I use director parameter access to only like the 39th argument from the stack (`%39$p`):
+Here is the Python code for doing such, again, I use direct parameter access to only like the 39th argument from the stack (`%39$p`):
 
 ```python
 # Leak the stack canary
