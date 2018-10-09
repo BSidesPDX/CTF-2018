@@ -1,6 +1,8 @@
 # mic - 300
 
-Provide `scans.tar.gz` and summary.
+To create the forensics 300 problem, simply execute `sh generate.sh` in the `src` directory. A file named `scans.tar.gz` will be assembled, compressed, and placed in the `distFiles` directory.
+
+Provide `distFiles/scans.tar.gz` and summary.
 
 ## Summary
 
