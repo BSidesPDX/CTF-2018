@@ -4,8 +4,8 @@
 -- FORENSICS --
 
 * 100 - capture - Attacker exfils data over unencrypted network protocol and exposes the flag in network traffic from a pcap that the victim captured.
-* 200 - hidden - file-carved mp3 file containing an encrypted tar file (key morse encoded and hidden in waveforms), which contains a hidden text file with permissions 000. That text file contains the flag masked by \b characters.
-300 -
+* 200 - hidden - File-carved mp3 file containing an encrypted tar file (key morse encoded and hidden in waveforms), which contains a hidden text file with permissions 000. That text file contains the flag masked by \b characters.
++ 300 - mic - Flag hidden byte-by-byte in a machine identification code on one of the 100 papers scanned in and compressed.
 
 -- OSINT --
 
