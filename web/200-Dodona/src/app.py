@@ -33,7 +33,10 @@ def index():
 
     if "q" in request.args:
         has_query = True
-        answer = magic_8_ball()
+        if "flag" in request.args["q"].lower():
+            answer = "The answer is not that simple..."
+        else:
+            answer = magic_8_ball()
 
     if current_cookie is None:
         encrypted_cookie = encrypt_cookie(STARTING_COOKIE_DATA)
