@@ -1,5 +1,6 @@
 from flask import Flask, session, render_template
 from flask_session import Session
+import base64
 
 app = Flask(__name__)
 SESSION_TYPE = "filesystem"
@@ -38,15 +39,16 @@ def check_path(word):
         if this_url_number == last_url_number + 1:
             session['last_url_number'] = this_url_number
         else:
+            if session['last_url_number'] > 2:
+                print "RESET ON WORD %s" % word
             session['last_url_number'] = 0
     else:
         session['last_visit_number'] = 0
 
     session['last_url'] = word
 
-    # should obfuscate this to make things a bit harder....
     if word in VISIT_ORDER:
-        return str(VISIT_ORDER[word])
+        return base64.b64encode(str(VISIT_ORDER[word]))
     return "" 
 
 def setup_app(app):
