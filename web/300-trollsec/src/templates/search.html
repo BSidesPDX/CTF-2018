@@ -12,7 +12,15 @@
 				  },
 				  data: { query:$("#query").val() }, 
 				  success: function(data) {
-			  		console.log(data);
+					  console.log(data);
+					  $(".search_results").empty();
+					  $.each(data, function (key, value) {
+						  //console.log(key);
+						  //console.log(value);
+						  //console.log(value['name']);
+						  $(".search_results").append("<a href=\"" + value['url'] + "\">" + value['name'] + "</a>");
+						  $(".search_results").append("<br />")
+					  });
 				  }
 			  })
 		  });
@@ -24,5 +32,15 @@
     <input type=text name=query id=query placeholder="Input your search here..."><br />
     <input type=text name=token id=token placeholder="Current token value..."><a href="/token" target="_blank">Get current token</a><br />
     <input type=button value="Submit">
+
+    <br />
+    <br />
+    <p>Results:</p>
+    <div class="search_results">
+        
+    </div>
+
   </div>
+
+
 {% endblock %}

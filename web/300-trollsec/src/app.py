@@ -35,17 +35,17 @@ def _search():
         query = request.args.get("query")
         token = request.headers.get("token")
         if query is not None and token is not None:
-            print "CHEESE"
             if not check_token(token):
                 return "TOKEN ERROR"
 
             g.db = connect_db()
-            query = "SELECT url FROM trolls WHERE url LIKE '%{}%'".format(query)
+            query = "SELECT url,name FROM trolls WHERE name LIKE '%{}%'".format(query)
             curs = g.db.execute(query)
             rows = curs.fetchall()
             g.db.close()
-            all_users = [{'name':user[0]} for user in rows]
-            return jsonify(all_users)
+            print rows
+            all_trolls = [{'url':troll[0], 'name':troll[1]} for troll in rows]
+            return jsonify(all_trolls)
     else:
         return "ERROR"
 
@@ -56,7 +56,6 @@ def show_token():
     global CURRENT_TOKEN_DATA
     response = make_response(CURRENT_TOKEN_DATA)
     response.headers.set('Content-Type', 'image/jpeg')
-    #response.headers.set('Content-Disposition', 'attachment', filename='token.jpg')
     return response
 
 
@@ -100,4 +99,4 @@ update_token()
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=80)
+    app.run(threaded=True, host='0.0.0.0', port=80)
