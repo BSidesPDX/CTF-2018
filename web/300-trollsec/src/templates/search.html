@@ -14,13 +14,17 @@
 				  success: function(data) {
 					  console.log(data);
 					  $(".search_results").empty();
-					  $.each(data, function (key, value) {
-						  //console.log(key);
-						  //console.log(value);
-						  //console.log(value['name']);
-						  $(".search_results").append("<a href=\"" + value['url'] + "\">" + value['name'] + "</a>");
-						  $(".search_results").append("<br />")
-					  });
+					  if ($.type(data) === "array") {
+					  	$.each(data, function (key, value) {
+							  //console.log(key);
+							  //console.log(value);
+							  //console.log(value['name']);
+							  $(".search_results").append("<a href=\"" + value['url'] + "\">" + value['name'] + "</a>");
+							  $(".search_results").append("<br />")
+					  	});
+					  } else if ($.type(data) === "string") {
+						$(".search_results").append("<p>" + data + "</p>");
+					  }
 				  }
 			  })
 		  });
