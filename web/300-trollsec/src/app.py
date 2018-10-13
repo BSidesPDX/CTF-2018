@@ -7,13 +7,16 @@ import sqlite3
 
 app = Flask(__name__)
 
+# Stores the token image data as well as token value
 CURRENT_TOKEN_DATA=""
 CURRENT_TOKEN = -1
 
+# How often to update the token in seconds
 TOKEN_UPDATE_INTERVAL=60
 
 app.database = "trollsec.db"
 
+# Just used for random video selection
 NUM_TROLL_VIDS = 7
 
 @app.route("/")
@@ -28,12 +31,18 @@ def about():
 def search():
     return render_template('search.html')
 
+# Ajax search helper, returns JSON array of results
 @app.route("/_search", methods=['GET'])
 def _search():
     if request.method == 'GET':
-        print request.args
+        if __debug__:
+            print request.args
+
         query = request.args.get("query")
+
+        # Note: token value is a header!
         token = request.headers.get("token")
+
         if query is not None and token is not None:
             if not check_token(token):
                 return "TOKEN ERROR"
@@ -43,7 +52,6 @@ def _search():
             curs = g.db.execute(query)
             rows = curs.fetchall()
             g.db.close()
-            print rows
             all_trolls = [{'url':troll[0], 'name':troll[1]} for troll in rows]
             return jsonify(all_trolls)
     else:
@@ -59,7 +67,7 @@ def show_token():
     return response
 
 
-#@app.errorhandler(404)
+# Have to set cross origin for error handler as we're grabbing various JSs for youtube vids
 @app.errorhandler(Exception)
 @cross_origin()
 def http_error_handler(error):
@@ -69,8 +77,9 @@ def http_error_handler(error):
 def check_token(token):
     global CURRENT_TOKEN
 
-    #print token
-    #print CURRENT_TOKEN
+    if __debug__:
+        print token
+        print CURRENT_TOKEN
 
     if token == CURRENT_TOKEN:
         return True
@@ -80,7 +89,7 @@ def check_token(token):
 def connect_db():
     return sqlite3.connect(app.database)
 
-
+# Updates the current token data and sets up timer to change in TOKEN_UPDATE_INTERVAL seconds
 def update_token():
     global CURRENT_TOKEN_DATA
     global CURRENT_TOKEN
@@ -89,13 +98,13 @@ def update_token():
 
     token_file = random.choice(os.listdir("images"))
     
+    # Token value is grabbed from filename, minus ".jpg"
     CURRENT_TOKEN = token_file[:-4]
 
     with open("images/" + token_file, 'rb') as img:
         CURRENT_TOKEN_DATA = img.read()
         
 update_token()
-
 
 
 if __name__ == "__main__":
