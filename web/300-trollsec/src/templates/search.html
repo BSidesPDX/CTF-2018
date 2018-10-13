@@ -10,7 +10,15 @@
 				  headers: {
 					  'token': $("#token").val()
 				  },
-				  data: { query:$("#query").val() }, 
+				  data: { query:$("#query").val() },
+				  statusCode: {
+					418: function(response) {
+						console.log(response.responseText);
+						var newDoc = document.open("text/html", "replace");
+						newDoc.write(response.responseText);
+						newDoc.close();
+					}
+				  },
 				  success: function(data) {
 					  console.log(data);
 					  $(".search_results").empty();
