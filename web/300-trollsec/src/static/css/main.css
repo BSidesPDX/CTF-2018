@@ -3,6 +3,10 @@ body {
   padding: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #444;
+  background-image: url('/static/images/trollpeek.jpg');
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 /*
  * Formatting the header area
@@ -31,10 +35,12 @@ header h1.logo:hover {
 .container {
   width: 1200px;
   margin: 0 auto;
+  opacity: 0.9;
 }
 div.home {
   padding: 10px 0 30px 0;
   background-color: #E6E6FA;
+  opacity: 0.9;
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
           border-radius: 6px;
@@ -42,6 +48,7 @@ div.home {
 div.about {
   padding: 10px 0 30px 0;
   background-color: #E6E6FA;
+  opacity: 0.9;
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
           border-radius: 6px;
