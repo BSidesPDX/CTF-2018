@@ -23,9 +23,9 @@ This is the development environment for the 2018 BSidesPDX CTF. We will referenc
 |                | OSINT        | 100 | |
 |                | OSINT        | 200 | |
 |                | OSINT | 300 | |
-| death_by_1000_curls | web | 100 | |
-| Dodona           | web | 200 | |
-| Trollsec         | web | 300 | |
+| death_by_1000_curls | web | 100 | 43478|
+| Dodona           | web | 200 | 4738 |
+| Trollsec         | web | 300 | 10101|
 
 ## Local Deployment
 
