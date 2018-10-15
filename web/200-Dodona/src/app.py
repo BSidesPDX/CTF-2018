@@ -10,8 +10,6 @@ import random
 
 app = Flask(__name__)
 
-PORT = 4378
-
 IV = Random.new().read(AES.block_size)
 
 #KEY = hashlib.sha256("testing").digest()
@@ -139,4 +137,4 @@ def clear_cookie():
     return resp
 
 if __name__ == "__main__":
-    app.run(threaded=True, host='0.0.0.0', port=4378)
+    app.run(threaded=True, host='0.0.0.0', port=4738)

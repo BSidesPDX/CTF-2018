@@ -11,8 +11,6 @@ Session(app)
 URL_ORDER_FILE="url_visit_order.txt"
 VISIT_ORDER = {}
 
-PORT = 43478
-
 # A lot of this needs to be cleaned up, and will be, just getting it functional for now
 
 @app.route("/")
@@ -66,4 +64,4 @@ def setup_url_order():
 setup_app(app)
 
 if __name__ == "__main__":
-    app.run(threaded=True,host='0.0.0.0', port=PORT)
+    app.run(threaded=True,host='0.0.0.0', port=43478)
