@@ -16,11 +16,9 @@ So let's just take a look at how a normal request works and see what we can do.
 
 There's two input fields: a search text input and a token input. Next to the token input, there's a link which, when clicked, opens a page with an image of the current token. Let's go ahead and search for "troll" with whatever the correct current token value is.
 
-We end up with a long list of links to a bunch of trollface memes. Seriously, who came up with this junk?! So, let's do that again, but this time open up the web developer tools in whatever browser you're using and capture the request. Here's the dump of mine:
+We end up with a long list of links to a bunch of trollface memes. Seriously, who came up with this junk?! So, let's do that again, but this time open up the web developer tools in whatever browser you're using and capture the request. 
 
-**[INSERT IMAGE HERE]**
-
-So that's interesting, the token doesn't show up at all in the parameters. It actually shows up as a custom header called "token".
+Taking a look through it, it's interesting. The token doesn't show up at all in the parameters. It actually shows up as a custom header called "token".
 
 Well anyway, let's try a few different SQL injection things. If we try to search with a single quote (') we get thrown to an error page. Ok, that's not good. Let's try again, but with a double quote. This time, we just get no results.
 
