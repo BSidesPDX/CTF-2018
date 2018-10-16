@@ -15,3 +15,24 @@ pwnclub:
         - seccomp:unconfined
 
 # web
+
+death_by_1000_curls:
+    build: ./web/100-death_by_1000_curls/src
+    ports:
+        - 43478:43478
+    security_opt:
+        - seccomp:unconfined
+
+dodona:
+    build: ./web/200-Dodona/src
+    ports:
+        - 4738:4738
+    security_opt:
+        - seccomp:unconfined
+
+trollsec:
+    build: ./web/300-trollsec/src
+    ports:
+        - 10101:10101
+    security_opt:
+        - seccomp:unconfined  

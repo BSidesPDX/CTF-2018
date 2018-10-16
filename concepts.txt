@@ -15,12 +15,12 @@
 
 -- PWNABLES and REVERSE ENGINEERING--
 
-+ 100 - goxor - golang binary with a XOR routine that hides the secret flag. Requires reversing of golang binary to identify the flag.
+* 100 - goxor - golang binary with a XOR routine that hides the secret flag. Requires reversing of golang binary to identify the flag.
 * 200 - secureshell - x64 Linux binary.  Asks for username and password, if both are correct, it launches a shell.  The username is hardcoded, however, the password is read from a file.  A strfmt vuln can be used to leak this password.
 * 300 - pwnclub - x64 Linux binary.  The vulnerabilities are easy and straight forward, but all anti-exploit mitigations are enabled.  There is both a string format vuln and stack overflow vuln.  The string format vuln can be used to leak a libc address and stack canary.  With this information, a ret2libc exploit can be used with the stack overflow vuln.
 
 --  WEB --
 
-100 - Death by 1000 curls - give users a wordlist, 1000 of those words will return a number 1-1000 from the server. users must hit urls in numerical order to get access to main page
-200 - padding oracle - crazy long cookie with lots of stuff that will need to be changed, cookie will be encrypted but susceptible to a padding oracle attack
-300 - totally_not_rsa token - still figuring out the full thing, but this will include a hidden url containing an image that changes every 30 seconds of a hardware security token displaying a pin. any interactions with the server must include the current pin
+* 100 - Death by 1000 curls - give users a wordlist, 1000 of those words will return a number 1-1000 from the server. users must hit urls in numerical order to get access to main page
+* 200 - padding oracle - crazy long cookie with lots of stuff that will need to be changed, cookie will be encrypted but susceptible to a padding oracle attack
+* 300 - totally_not_rsa token - still figuring out the full thing, but this will include a hidden url containing an image that changes every 30 seconds of a hardware security token displaying a pin. any interactions with the server must include the current pin

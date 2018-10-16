@@ -1,34 +1,15 @@
-# What
-
-Template for service creation with docker and kubernetes
-
-## Directory Structure
-
-```
-Challenge
-| - deployment
-| - solution
-| - src
-```
+# Web 100 -- Death By 1000 Curls
+## Description
+Flask application for Death By 1000 Curls web challenge. Requires determining which URLs to visit in which order (a URL knocking scheme) to get the flag.
 
 ## Deploy
+Either build and run through Docker, or by simply running:
+```
+python app.py
+```
 
-1. export PROJECT_ID="google platform project ID"
-1. make container
-1. make push
-1. make deploy
-1. make serve
 
-Alterantive
+## Challenge
+I think that's the saying...right?
 
-1. export PROJECT_ID="google platform project ID"
-1. make
-
-## Delete
-
-1. make deleteKube
-1. make delete
-
-Alternative
-
-1. make clean
+flag: BSidesPDX{B3773r_th4n_d34th_By_1000_cu75}

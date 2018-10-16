@@ -16,11 +16,9 @@ So let's just take a look at how a normal request works and see what we can do.
 
 There's two input fields: a search text input and a token input. Next to the token input, there's a link which, when clicked, opens a page with an image of the current token. Let's go ahead and search for "troll" with whatever the correct current token value is.
 
-We end up with a long list of links to a bunch of trollface memes. Seriously, who came up with this junk?! So, let's do that again, but this time open up the web developer tools in whatever browser you're using and capture the request. Here's the dump of mine:
+We end up with a long list of links to a bunch of trollface memes. Seriously, who came up with this junk?! So, let's do that again, but this time open up the web developer tools in whatever browser you're using and capture the request. 
 
-**[INSERT IMAGE HERE]**
-
-So that's interesting, the token doesn't show up at all in the parameters. It actually shows up as a custom header called "token".
+Taking a look through it, it's interesting. The token doesn't show up at all in the parameters. It actually shows up as a custom header called "token".
 
 Well anyway, let's try a few different SQL injection things. If we try to search with a single quote (') we get thrown to an error page. Ok, that's not good. Let's try again, but with a double quote. This time, we just get no results.
 
@@ -36,7 +34,7 @@ import requests
 from PIL import Image
 import io
 
-url = 'http://127.0.0.1/token'
+url = 'http://127.0.0.1:10101/token'
 data = requests.get(url).content
 img = Image.open(io.BytesIO(data))
 text = pytesseract.image_to_string(img)
@@ -66,7 +64,7 @@ def dependencies():
     pass
 
 def tamper(payload, **kwargs):
-    url = 'http://127.0.0.1/token'
+    url = 'http://127.0.0.1:10101/token'
     data = requests.get(url).content
     img = Image.open(io.BytesIO(data))
     text = pytesseract.image_to_string(img)
@@ -80,7 +78,7 @@ You also may need to throw an empty \__init__.py file into the same folder, as i
 
 Let's try to use this new tamper script and see if we can get any results:
 ```
-sqlmap --tamper=trollsec_tamper.py -u http://127.0.0.1/_search?query=troll* --dump-all --level=3 --skip-urlencode
+sqlmap --tamper=trollsec_tamper.py -u http://127.0.0.1:10101/_search?query=troll* --dump-all --level=3 --skip-urlencode
 ```
 
 Eventually, we get results! Unfortunately, it's too many results! There's 30 different secrets tables, and each one is basically just a number of IDs and single letters. Looking at all those letters, they all look like they're base64 characters. Maybe if we just grab all the letters, put them together, and base64 decode it we get something?

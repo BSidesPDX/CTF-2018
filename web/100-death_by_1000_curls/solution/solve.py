@@ -3,7 +3,7 @@ import base64
 sess = requests.session()
 
 URL="127.0.0.1"
-PORT="80"
+PORT="43478"
 
 r = sess.get("http://%s:%s/static/dict.txt" % (URL, PORT))
 
