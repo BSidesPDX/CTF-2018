@@ -6,7 +6,7 @@ ADD . /app
 # Install any necessary dependencies
 RUN pip install -r requirements.txt
 
-# Open port 80 for serving the webpage
+# Open port 43478 for serving the webpage
 EXPOSE 43478
 
 # Run app.py when the container launches
