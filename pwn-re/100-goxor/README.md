@@ -4,6 +4,8 @@
 
 golang binary with a XOR routine that hides the secret flag. Requires reversing of golang binary to identify the flag.
 
+Give player binary from `distFiles`
+
 ## Deploy
 
 1. change flag in flag file
