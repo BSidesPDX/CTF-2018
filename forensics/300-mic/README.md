@@ -6,6 +6,6 @@ Provide `distFiles/scans.tar.gz` and summary.
 
 ## Summary
 
-I ran some papers through the printer and then through the scanner sometime in September 2018. I think my printer may have messed up the dot matrices on one of the pages. Would you mind double checking?
+There were some papers lying on the printer with random lines on them. I scanned them in. I think there is information hidden in one of the papers. Can you find out what it is?
 
 flag: BSidesPDX{d0t}
