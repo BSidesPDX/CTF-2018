@@ -2,11 +2,11 @@
 
 ## Solution
 
-The intended solution for forensics 300 is as follows:
+The script to solve forensics 300 does the following:
 
 1. Extract the file `scans.tar.gz` to a new directory `scans/`.
 2. Write a script to perform steps 3-6 for each file matching `scans/*.png`.
-3. Locate the pixel (let's call it the "origin") closest to the upper left corner of the image that's hex color code is in the range `FFFF77` to `FFFF88`. The colors in this range are only used for drawing dot matrices. The range can be determined by manually checking a few of the dots in the matrices to test for the limits. This pixel is the upper left of the machine identification code.
+3. Locate the pixel (let's call it the "origin") closest to the upper left corner of the image that's hex color code is in the range `FFFF77` to `FFFF88` (inclusive). The colors in this range are only used for drawing dot matrices. The range can be determined by manually checking a few of the dots in the matrices to test for the limits. This pixel is the upper left of the machine identification code.
 4. The leftmost column is a parity column, and the uppermost row is a parity row (see below image; the parity columns are circled in red, and origin pixel is circled twice). So, repeat steps 5-6 14 times (as dot matrices are 15 pixels wide after spacing is taken out, minus the 1 parity column to the very left).
 
 ![parity](screenshot_parity.png)
@@ -15,7 +15,7 @@ The intended solution for forensics 300 is as follows:
 
 ![columns](screenshot_columns.png)
 
-6. Now convert each number in each column (all of which are less than 255) to an their ASCII representation (e.g. `41` -> `A`). Concatenate all of the characters together. If the resulting string contains "BSidesPDXCTF", write the string to stdout. Otherwise, the image is not the one containing the flag.
+6. Now convert each number in each column (all of which are less than 255) to an their ASCII representation (e.g. `41` -> `A`). Concatenate all of the characters together. If the resulting string contains "BSidesPDX", write the string to stdout. Otherwise, the image is not the one containing the flag.
 
 ------
 
