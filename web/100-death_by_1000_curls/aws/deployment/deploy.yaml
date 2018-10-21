@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: web100
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: web100
+      labels:
+        app: web100
+    spec:
+      containers:
+        - name: web100
+          image: bsidespdx2018/web100
+          imagePullPolicy: Always
+          securityContext:
+            privileged: false
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
