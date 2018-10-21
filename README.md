@@ -20,9 +20,9 @@ This is the development environment for the 2018 BSidesPDX CTF. We will referenc
 | goxor          | pwn/re        | 100    | N/A  |
 | secureshell    | pwn/re        | 200    | 7100 |
 | pwnclub        | pwn/re        | 300    | 31337 |
-|                | OSINT        | 100 | |
-|                | OSINT        | 200 | |
-|                | OSINT | 300 | |
+| leaky projects | OSINT        | 100 | |
+| leaky secrets  | OSINT        | 200 | |
+| leaky security | OSINT | 300 | |
 | death_by_1000_curls | web | 100 | 43478|
 | Dodona           | web | 200 | 4738 |
 | Trollsec         | web | 300 | 10101|
