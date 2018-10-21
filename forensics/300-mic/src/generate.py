@@ -53,7 +53,7 @@ def getPaper():
         draw.line((random.choice(range(size_x)), random.choice(range(size_y)), random.choice(range(size_x)), random.choice(range(size_y))), fill = 128)
 
     # draw heading
-    draw.text((10, 10), "BSidesPDX CTF - 2018", font = ImageFont.truetype("arial"), fill = (0, 0, 0))
+    draw.text((10, 10), "BSidesPDX CTF - 2018", font = ImageFont.truetype("arial.ttf"), fill = (0, 0, 0))
 
     # write a newline after status message
     sys.stdout.write('\n')
