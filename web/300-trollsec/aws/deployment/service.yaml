@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web300
+spec:
+  ports:
+   - port: 10101
+     targetPort: 10101
+  selector:
+    app: web300
+  type: LoadBalancer
+---
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: web300
+spec:
+  podSelector:
+    matchLabels:
+      app: web300
+  ingress:
+  - ports:
+    - port: 10101
+    from: []
