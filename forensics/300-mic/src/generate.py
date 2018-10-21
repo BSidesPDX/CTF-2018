@@ -3,7 +3,7 @@ import random, numpy, sys, math
 
 # define variables here
 flag = 'BSidesPDX{d0t}' # max 16 bytes
-number_of_papers = 7#100
+number_of_papers = 100
 
 matrix_size = (8, 15) # was 15
 matrix_ratio = 2.5

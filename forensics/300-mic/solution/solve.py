@@ -28,7 +28,7 @@ def decodePaper(file, path = '../distFiles/'):
 
     return text
 
-number_of_papers = 7#100
+number_of_papers = 100
 
 for paper_index in range(number_of_papers):
     decoded = decodePaper('scan%s.png' % paper_index, '../src/workspace/')
