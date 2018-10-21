@@ -7,7 +7,7 @@ ADD . /app
 
 # Install dependencies
 RUN apt-get update
-RUN apt-get install -y --no-install-recommends socat
+RUN apt-get install -y --no-install-recommends xinetd
 
 # Setup file permissions
 RUN adduser --disabled-password --gecos '' pwnclub
@@ -21,6 +21,10 @@ RUN chmod 440 /app/flag.txt
 RUN chmod 440 /app/pwnclub.c
 RUN chmod 440 /app/Dockerfile
 
-# Expose port 31337 and use socat to redirect stdin/stdout to this port
+# Deploy the service file
+COPY pwnclub.service /etc/xinetd.d/nodes
+
+# Expose port 31337 and run xinetd
+RUN echo "pwnclub 31337/tcp" >> /etc/services
 EXPOSE 31337
-CMD su pwnclub -c "socat -T10 TCP-LISTEN:31337,reuseaddr,fork EXEC:/app/pwnclub"
+CMD ["xinetd", "-dontfork"]

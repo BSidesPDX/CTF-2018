@@ -1,0 +1,9 @@
+service pwnclub
+{
+        disable         = no
+        flags           = REUSE
+        socket_type     = stream
+        wait            = no
+        user            = pwnclub
+        server          = /app/pwnclub
+}
