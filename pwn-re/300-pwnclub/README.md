@@ -14,4 +14,4 @@ Provide user with binary and `libc.so.6` from the container
 
 Do you have what it takes to join pwnclub?
 
-flag: BSidesPDX{w3lc0m3___70_7h3_pWn__club!}
+flag: `BSidesPDX{w3lc0m3___70_7h3_pWn__club!}`
