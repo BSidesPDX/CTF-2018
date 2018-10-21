@@ -7,7 +7,7 @@ ADD . /app
 
 # Install dependencies
 RUN apt-get update
-RUN apt-get install -y --no-install-recommends socat
+RUN apt-get install -y --no-install-recommends xinetd
 
 # Setup file permissions
 RUN adduser --disabled-password --gecos '' secureshell
@@ -23,6 +23,10 @@ RUN chmod 440 /app/secureshell.c
 RUN chmod 440 /app/password.txt
 RUN chmod 440 /app/Dockerfile
 
-# Expose port 7100 and use socat to redirect stdin/stdout to this port
+# Deploy the service file
+COPY secureshell.service /etc/xinetd.d/nodes
+
+# Expose port 7100 and run xinetd
+RUN echo "secureshell 7100/tcp" >> /etc/services
 EXPOSE 7100
-CMD su secureshell -c "socat -T10 TCP-LISTEN:7100,reuseaddr,fork EXEC:/app/secureshell"
+CMD ["xinetd", "-dontfork"]

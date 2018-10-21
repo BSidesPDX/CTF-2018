@@ -1,10 +1,12 @@
 // gcc main.c -o secureshell
-#include <stdio.h>	//printf
-#include <string.h>	//strcmp
-#include <stdlib.h> //exit
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 #define USERNAME "r00t"
 #define PASSWORD_FILE "password.txt"
+#define WORKING_DIR "/app"
 
 void main()
 {
@@ -20,6 +22,9 @@ void main()
 	memset(password, 0x00, 255);
 	memset(password_in, 0x00, 255);
 	memset(input, 0x00, 1024);
+
+	// Change working directory
+	chdir(WORKING_DIR);
 
 	// Read password file
 	fd = fopen(PASSWORD_FILE, "r");
