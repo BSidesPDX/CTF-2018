@@ -9,6 +9,8 @@ spec:
       name: web300
       labels:
         app: web300
+      annotations:
+        iam.amazonaws.com/role: arn:aws:iam::503205249670:role/CTFChallengeRole
     spec:
       containers:
         - name: web300
