@@ -9,6 +9,8 @@ spec:
       name: pwn200
       labels:
         app: pwn200
+      annotations:
+        iam.amazonaws.com/role: arn:aws:iam::503205249670:role/CTFChallengeRole
     spec:
       containers:
         - name: pwn200
