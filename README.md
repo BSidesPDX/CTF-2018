@@ -1,14 +1,14 @@
 # BSidesPDX CTF 2018
 
-## WHAT
+## BSidesPDX
 
-This is the development environment for the 2018 BSidesPDX CTF. We will reference the deployment and infra setup used in [BSidesPDX 2017 CTF](https://github.com/BSidesPDX/CTF-2017/tree/master/deployTemplate/src) for this years as well.
+CTF was ran during [BSidesPDX 2018](https://bsidespdx.org/events/2018/contests-events.html) on October 26th and 27th.
 
-1. Write your challenge idea in `concepts.txt`
-1. copy the `deployTemplate` dir structure for your challenge (only commit the working parts. The deploy yamls should be changed before committing, for example)
-1. Implement your challenge
-1. If applicable, add your docker config to `docker-compose.yml` and add relevant information to `Makefile` to automate the process of deploying a local instance of the CTF
-1. Provide a solution for your challenge
+We used [CTFd](https://ctfd.io/) for the scoreboard hosted at [BSidesPDXCTF.party](https://bsidespdxctf.party/).
+
+Challenges built by: [TTimzen](https://twitter.com/TTimzen), [fdcarl](https://twitter.com/fdcarl), [aagallag](https://twitter.com/aagallag), [dade](https://twitter.com/0xdade) & [arinerron](https://twitter.com/arinerron)
+
+Infrastructure support provided by Mozilla: Jeff Bryner, Andrew Krug and Daniel Hartnell
 
 ## Challenges
 
@@ -38,8 +38,6 @@ To locally test, deploy or play challenges with Docker, run the following (Ubunt
 1. `docker-compose kill` to stop the containers
 1. `make clean` to clean the source folders
 
-## BSidesPDX
+## Cloud Deployment
 
-CTF was ran during [BSidesPDX 2018](https://bsidespdx.org/events/2018/contests-events.html) on October 26th and 27th.
-
-We used [CTFd](https://ctfd.io/) for the scoreboard hosted at [BSidesPDXCTF.party](https://bsidespdxctf.party/).
+This year we ran all of our challenges in k8s using the `Makefile` and yamls in the `aws` directory of pwn-re 100, 200 and all web challenges.
