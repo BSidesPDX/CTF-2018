@@ -9,6 +9,7 @@ cp paper.png workspace/
 cd workspace
 
 # run generation script
+cp ../arial.ttf .
 python3 ../generate.py
 
 # remove the stock paper photo
